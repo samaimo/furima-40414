@@ -70,3 +70,12 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+group :development do
+  gem 'rubocop', require: false
+end
+
+#　本番環境(Render)でデプロイするためにデータベース（PostgreSQL）を使用できるようにするための記述
+group :production do
+  gem 'pg'
+end
