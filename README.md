@@ -14,7 +14,7 @@
 | birth_day              | date             | null:false              |
 
 ### Association
-- has_many :oders
+- has_many :orders
 - has_many :items
 
 
@@ -34,10 +34,10 @@
 
 ### Association
 - belongs_to :user
-- has_one :oder
+- has_one :order
 
 
-## odersテーブル　（購入に必要な情報）
+## ordersテーブル　（購入に必要な情報）
 | Column                 | Type             | Options                 |
 | ---------------------- | ---------------- | ----------------------- |
 | user                   | references       | null:false, foreign_key:true |
@@ -59,7 +59,7 @@
 | street_address         | string           | null:false              |
 | building_name          | string           | default: nil, null: true |
 | phone_number           | string           | null:false              |
-| oder                   | references       | null:false, foreign_key:true |
+| order                  | references       | null:false, foreign_key:true |
 
 ### Association
-- belongs_to :oder
+- belongs_to :order

@@ -71,7 +71,7 @@
                 <mxCell id="80" value="user_id（出品者）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="8" vertex="1">
                     <mxGeometry y="276" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="92" value="oder_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="8" vertex="1">
+                <mxCell id="92" value="order_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="8" vertex="1">
                     <mxGeometry y="306" width="160" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="83" style="edgeStyle=none;jumpSize=15;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeWidth=1;startArrow=ERmany;startFill=0;endArrow=ERone;endFill=0;startSize=20;endSize=20;targetPerimeterSpacing=-1;" parent="1" source="13" target="2" edge="1">
@@ -136,7 +136,7 @@
                 <mxCell id="89" value="user_id（購入者）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="19" vertex="1">
                     <mxGeometry y="216" width="160" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="93" value="oder_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="19" vertex="1">
+                <mxCell id="93" value="order_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="19" vertex="1">
                     <mxGeometry y="246" width="160" height="30" as="geometry"/>
                 </mxCell>
             </root>
