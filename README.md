@@ -14,7 +14,7 @@
 | birth_day              | date             | null:false              |
 
 ### Association
-- has_many :transactions
+- has_many :oders
 - has_many :items
 
 
@@ -27,16 +27,17 @@
 | category_id               | integer          | null:false              |
 | condition_id              | integer          | null:false              |
 | shipping_cost_burden_id   | integer          | null:false              |
+| delivery_days_id          | integer          | null:false              |
 | prefecture_id             | integer          | null:false              |
 | price                     | integer          | null:false              |
 | user                      | references       | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_one :transaction
+- has_one :oder
 
 
-## transactionsテーブル　（購入に必要な情報）
+## odersテーブル　（購入に必要な情報）
 | Column                 | Type             | Options                 |
 | ---------------------- | ---------------- | ----------------------- |
 | user                   | references       | null:false, foreign_key:true |
@@ -58,7 +59,7 @@
 | street_address         | string           | null:false              |
 | building_name          | string           | default: nil, null: true |
 | phone_number           | string           | null:false              |
-| transaction            | references       | null:false, foreign_key:true |
+| oder            | references       | null:false, foreign_key:true |
 
 ### Association
-- belongs_to :transaction
+- belongs_to :oder
