@@ -14,4 +14,7 @@ class User < ApplicationRecord
   # お名前カナ(全角)は、全角（カタカナ）での入力が必須
   validates :kana_last_name, :kana_first_name, presence: true,
                                                format: { with: /\A[ァ-ヶー]+\z/, message: 'は全角カタカナで入力してください' }
+  # パスワードは英数字混合の入力が必須
+  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
 end
