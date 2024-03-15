@@ -7,7 +7,9 @@ class Item < ApplicationRecord
   # プルダウン式の選択が「---」の時は保存できないようにする
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :condition_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_cost_burden_id_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_cost_burden_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefacture_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :delivery_days_id, numericality: { other_than: 1, message: "can't be blank" }
 
   # アソシエーション
   belongs_to :user
@@ -16,4 +18,6 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :condition
   belongs_to :shipping_cost_burden
+  belongs_to :prefacture
+  belongs_to :delivery_days
 end
