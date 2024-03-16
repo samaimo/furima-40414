@@ -3,6 +3,6 @@ window.addEventListener('turbo:load', () => {
   taxInput.addEventListener("input", () => {
     const inputValue = taxInput.value;
     const addTaxDom = document.getElementById("add-tax-price");
-    addTaxDom.innerHTML = Math.floor(parseFloat(inputValue) * 0.1);
+    addTaxDom.innerHTML =  Math.floor(parseFloat(inputValue) * 0.1) || 0;
   });
 });
