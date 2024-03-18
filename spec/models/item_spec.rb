@@ -23,27 +23,27 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include 'Description を入力してください'
       end
       it 'カテゴリーが空だと登録できない' do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
       it '商品の状態が空だと登録できない' do
-        @item.condition_id = '1'
+        @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Condition can't be blank"
       end
       it '配送料の負担が空だと登録できない' do
-        @item.shipping_cost_burden_id = '1'
+        @item.shipping_cost_burden_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping cost burden can't be blank"
       end
       it '発送元が空だと登録できない' do
-        @item.prefecture_id = '1'
+        @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
       it '発送までの日数が空だと登録できない' do
-        @item.delivery_days_id = '1'
+        @item.delivery_days_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery days can't be blank"
       end
