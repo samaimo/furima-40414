@@ -23,29 +23,29 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include 'Description を入力してください'
       end
       it 'カテゴリーが空だと登録できない' do
-        @item.category_id = ''
+        @item.category_id = '---'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Category を入力してください'
+        expect(@item.errors.full_messages).to include "Category can't be blank"
       end
       it '商品の状態が空だと登録できない' do
-        @item.condition_id = ''
+        @item.condition_id = '---'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Condition を入力してください'
+        expect(@item.errors.full_messages).to include "Condition can't be blank"
       end
       it '配送料の負担が空だと登録できない' do
-        @item.shipping_cost_burden_id = ''
+        @item.shipping_cost_burden_id = '---'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Shipping cost burden を入力してください'
+        expect(@item.errors.full_messages).to include "Shipping cost burden can't be blank"
       end
       it '発送元が空だと登録できない' do
-        @item.prefecture_id = ''
+        @item.prefecture_id = '---'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Prefecture を入力してください'
+        expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
       it '発送までの日数が空だと登録できない' do
-        @item.delivery_days_id = ''
+        @item.delivery_days_id = '---'
         @item.valid?
-        expect(@item.errors.full_messages).to include 'Delivery days を入力してください'
+        expect(@item.errors.full_messages).to include "Delivery days can't be blank"
       end
       it '販売価格が空だと登録できない' do
         @item.price = ''
@@ -61,6 +61,16 @@ RSpec.describe Item, type: :model do
         @item.image = nil
         @item.valid?
         expect(@item.errors.full_messages).to include 'Image 画像を添付してください'
+      end
+      it '300未満の値では保存できないこと' do
+        @item.price = '299'
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'Price は300円以上9,999,999円以内の半角数値で入力してください'
+      end
+      it '10000000以上の値では保存できないこと' do
+        @item.price = '10000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include 'Price は300円以上9,999,999円以内の半角数値で入力してください'
       end
     end
   end
