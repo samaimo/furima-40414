@@ -6,8 +6,8 @@ window.addEventListener('turbo:load', () => {
   profitInput.addEventListener("input", () => {
     const inputValue = profitInput.value;
     const taxPrice = document.getElementById('add-tax-price');
-    const taxPriceValue = parseFloat(taxPrice.innerHTML);
+    const taxPriceValue = Math.floor(parseFloat(inputValue) * 0.1) || 0;
     const profitDom = document.getElementById('profit');
-    profitDom.innerHTML = Math.floor( inputValue - taxPriceValue)||0;
+    profitDom.innerHTML = inputValue - taxPriceValue ||0;
   })
 });
