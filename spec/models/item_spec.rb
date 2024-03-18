@@ -72,6 +72,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include 'Price は300円以上9,999,999円以内の半角数値で入力してください'
       end
+      it 'ユーザーが紐づいていないと保存できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
+      end
     end
   end
 end
