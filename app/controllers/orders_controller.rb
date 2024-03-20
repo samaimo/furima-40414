@@ -1,23 +1,24 @@
 class OrdersController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
-    @order = @item.build_order
+    @purchase_form = PurchaseForm.new
   end
 
-  # def create
-  #   @order = Order.new(order_params)
-  #   if @order.valid?
-  #     @order.save
-  #     return redirect_to root_path
-  #   else
-  #     render 'index', status: :unprocessable_entity
-  #   end
-  # end
+  def create
+    @item = Item.find(params[:item_id]) 
+    @purchase_form = PurchaseForm.new(purchase_form_params)
+    if @purchase_form.valid?
+      @purchase_form.save
+      redirect_to root_path
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
 
-  # private
+  private
 
-  # def order_params
-  #   params.require(:order).permit(:price)
-  # end
+  def purchase_form_params
+    params.require(:purchase_form).permit(:postal_code, :prefecture_id, :city, :street_address, :building_name, :phone_number). merge(user_id: current_user.id, item_id: params[:item_id])
+  end
 
 end
