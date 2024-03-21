@@ -1,7 +1,13 @@
 class OrdersController < ApplicationController
-  def index
+
+  def index 
     @item = Item.find(params[:item_id])
-    @purchase_form = PurchaseForm.new
+    if user_signed_in? && !Order.exists?(item_id: @item.id) && @item.user == !current_user
+
+      @purchase_form = PurchaseForm.new
+    else
+      redirect_to root_path
+    end
   end
 
   def create
