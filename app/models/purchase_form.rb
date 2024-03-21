@@ -5,7 +5,7 @@ class PurchaseForm
   # 空白を許可しない
   validates  :postal_code,:prefecture_id,:city,:street_address,:phone_number, presence: { message: 'を入力してください' }
   # 郵便番号は「3桁ハイフン4桁」の半角文字列のみ
-  validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'を入力してください' }
+  validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'は「3桁ハイフン4桁」の半角文字列で入力してください' }
   # 電話番号10桁以上11桁以内の半角数値のみ
   validates :phone_number, format: { with: /\A\d{10,11}\z/ , message: 'を入力してください' }
 
