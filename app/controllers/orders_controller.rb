@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
         return
       end
     end
-    redirect_to root_path
+    redirect_to user_session_path
   end
   
 
