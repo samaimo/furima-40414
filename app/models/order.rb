@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
-  #バリデーション
-  
+  attr_accessor :token, :price
 
 
   # アソシエーション
