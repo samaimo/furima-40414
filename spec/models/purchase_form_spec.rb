@@ -61,6 +61,11 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.valid?
         expect(@purchase_form.errors.full_messages).to include 'Prefecture を入力してください'
       end
+      it '都道府県の入力値が０だと登録できない' do
+        @purchase_form.prefecture_id = '0'
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include 'Prefecture を入力してください'
+      end
       it '市区町村が空欄だと登録できない' do
         @purchase_form.city = ''
         @purchase_form.valid?
