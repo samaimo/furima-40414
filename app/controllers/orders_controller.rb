@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
+  before_action :set_item, only: [:index,:create]
 
   def index 
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @item = Item.find(params[:item_id])
     if user_signed_in? && @item.user != current_user
       unless Order.exists?(item_id: @item.id, user_id: current_user.id)
         @purchase_form = PurchaseForm.new
@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   
 
   def create
-    @item = Item.find(params[:item_id]) 
+    
     @purchase_form = PurchaseForm.new(purchase_form_params)
     # 入力フォームに購入情報や配送先情報があり、クレカ情報のトークンがあれば、「購入」できる
     if @purchase_form.valid?
@@ -41,4 +41,10 @@ class OrdersController < ApplicationController
       currency: 'jpy'
     )
   end
+
+  def set_item
+    @item = Item.find(params[:item_id]) 
+  end
+
+
 end
