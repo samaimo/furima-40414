@@ -9,8 +9,8 @@ class PurchaseForm
   validates :postal_code, format: { with: /\A\d{3}-\d{4}\z/, message: 'は「3桁ハイフン4桁」の半角文字列で入力してください' }
   # 電話番号10桁以上11桁以内の半角数値のみ
   validates :phone_number, format: { with: /\A\d{10,11}\z/ , message: 'は電話番号10桁以上11桁以内の半角数値を入力してください' }
-  #　都道府県の入力の必須 ( 0以外の数値の入力必須)
-  validates :prefecture_id, numericality: {other_than: 0, message: "を入力してください"}
+  #　都道府県の入力の必須 ( 1以外の数値の入力必須)
+  validates :prefecture_id, numericality: {other_than: 1, message: "を入力してください"}
 
   # 各テーブルにデータを保存する処理を書く
   def save

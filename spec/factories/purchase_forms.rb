@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :purchase_form do
-    user_id                   { 1 }
-    item_id                   { 1 }
     postal_code               { "466-0031" }
-    prefecture_id                 { 1 }
+    prefecture_id             { Faker::Number.between(from: 2, to: 48) }
     city                      { "名古屋市中区" }
     street_address            { "本丸1-1" }
     building_name             { "名古屋城" }
