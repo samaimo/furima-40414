@@ -15,9 +15,17 @@ RSpec.describe PurchaseForm, type: :model do
         @purchase_form.building_name = ""
         expect(@purchase_form).to be_valid
       end
+      it "priceとtokenがあれば保存ができること" do
+        expect(@purchase_form).to be_valid
+      end
     end
 
     context '内容に問題がある場合' do
+      it "tokenが空では登録できないこと" do
+        @purchase_form.token = ""
+        @purchase_form.valid?
+        expect(@purchase_form.errors.full_messages).to include "Token を入力してください"
+      end
       it '郵便番号が空欄の場合は登録できない' do
         @purchase_form.postal_code = ''
         @purchase_form.valid?
@@ -71,7 +79,7 @@ RSpec.describe PurchaseForm, type: :model do
       it '電話番号は、10桁以上11桁以内の半角数値以外の場合は登録できない' do
         @purchase_form.phone_number = '090-1234-1234'
         @purchase_form.valid?
-        expect(@purchase_form.errors.full_messages).to include 'Phone number を入力してください'
+        expect(@purchase_form.errors.full_messages).to include 'Phone number は電話番号10桁以上11桁以内の半角数値を入力してください'
       end
     end
   end
